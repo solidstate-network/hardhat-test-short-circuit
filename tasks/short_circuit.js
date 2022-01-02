@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { HardhatPluginError } = require('hardhat/plugins');
 
 task(
   'short-circuit', 'Stop ongoing test execution and print results'
@@ -9,5 +10,9 @@ task(
     '.short_circuit_indicator'
   );
 
-  fs.rmSync(shortCircuitIndicator);
+  try {
+    fs.rmSync(shortCircuitIndicator);
+  } catch (e) {
+    throw new HardhatPluginError('short circuit indicator file not found; are tests in progress?');
+  }
 });

@@ -5,7 +5,7 @@ task(
   'short-circuit', 'Stop ongoing test execution and print results'
 ).setAction(async function (args, hre) {
   const shortCircuitIndicator = path.resolve(
-    hre.config.paths.cache,
+    hre.config.paths.tests,
     '.short_circuit_indicator'
   );
 

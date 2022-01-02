@@ -7,7 +7,7 @@ module.exports = {
   mochaHooks: {
     beforeAll: function () {
       const shortCircuitIndicator = path.resolve(
-        hre.config.paths.cache,
+        hre.config.paths.tests,
         '.short_circuit_indicator'
       );
 
@@ -22,7 +22,7 @@ module.exports = {
     },
     afterAll: function () {
       const shortCircuitIndicator = path.resolve(
-        hre.config.paths.cache,
+        hre.config.paths.tests,
         '.short_circuit_indicator'
       );
 

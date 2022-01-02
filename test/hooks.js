@@ -17,8 +17,16 @@ module.exports = {
         skip = true;
       });
     },
-    beforeEach: async function () {
+    beforeEach: function () {
       if (skip) this.skip();
+    },
+    afterAll: function () {
+      const shortCircuitIndicator = path.resolve(
+        hre.config.paths.cache,
+        '.short_circuit_indicator'
+      );
+
+      fs.rmSync(shortCircuitIndicator);
     },
   },
 };

@@ -9,5 +9,5 @@ task(
     '.short_circuit_indicator'
   );
 
-  fs.closeSync(fs.openSync(shortCircuitIndicator, 'w'));
+  fs.rmSync(shortCircuitIndicator);
 });

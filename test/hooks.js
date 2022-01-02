@@ -5,17 +5,19 @@ let skip = false;
 
 module.exports = {
   mochaHooks: {
-    beforeEach: async function () {
+    beforeAll: function () {
       const shortCircuitIndicator = path.resolve(
         hre.config.paths.cache,
         '.short_circuit_indicator'
       );
 
-      if (!skip && fs.existsSync(shortCircuitIndicator)) {
-        fs.rmSync(shortCircuitIndicator);
-        skip = true;
-      }
+      fs.closeSync(fs.openSync(shortCircuitIndicator, 'w'));
 
+      fs.watch(shortCircuitIndicator, function () {
+        skip = true;
+      });
+    },
+    beforeEach: async function () {
       if (skip) this.skip();
     },
   },

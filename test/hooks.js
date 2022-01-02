@@ -26,7 +26,11 @@ module.exports = {
         '.short_circuit_indicator'
       );
 
-      fs.rmSync(shortCircuitIndicator);
+      try {
+        fs.rmSync(shortCircuitIndicator);
+      } catch (e) {
+        // assume that indicator was removed via short-circuit task; do nothing
+      }
     },
   },
 };

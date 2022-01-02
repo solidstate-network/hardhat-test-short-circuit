@@ -1,0 +1,30 @@
+{
+  "name": "@solidstate/hardhat-test-short-circuit",
+  "version": "0.0.0",
+  "license": "MIT",
+  "description": "Stop Hardhat test execution on demand and print output from completed tests",
+  "keywords": [
+    "hardhat",
+    "buidler",
+    "test",
+    "solidity",
+    "solc",
+    "smart-contracts",
+    "ethereum",
+    "blockchain",
+    "wow"
+  ],
+  "repository": "github:solidstate-network/hardhat-test-short-circuit",
+  "author": "Nick Barry",
+  "main": "index.js",
+  "peerDependencies": {
+    "hardhat": "^2.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.0.0",
+    "hardhat": "^2.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

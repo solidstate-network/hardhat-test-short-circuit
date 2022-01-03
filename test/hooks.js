@@ -1,3 +1,4 @@
+const os = require('os');
 const fs = require('fs');
 const path = require('path');
 
@@ -7,8 +8,8 @@ module.exports = {
   mochaHooks: {
     beforeAll: function () {
       const shortCircuitIndicator = path.resolve(
-        hre.config.paths.tests,
-        '.short_circuit_indicator'
+        os.tmpdir(),
+        '.hardhat_test_short_circuit_indicator'
       );
 
       fs.closeSync(fs.openSync(shortCircuitIndicator, 'w'));
@@ -22,8 +23,8 @@ module.exports = {
     },
     afterAll: function () {
       const shortCircuitIndicator = path.resolve(
-        hre.config.paths.tests,
-        '.short_circuit_indicator'
+        os.tmpdir(),
+        '.hardhat_test_short_circuit_indicator'
       );
 
       try {

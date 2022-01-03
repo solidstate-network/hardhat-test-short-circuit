@@ -1,13 +1,14 @@
+const os = require('os');
 const fs = require('fs');
 const path = require('path');
 const { HardhatPluginError } = require('hardhat/plugins');
 
 task(
   'short-circuit', 'Stop ongoing test execution and print results'
-).setAction(async function (args, hre) {
+).setAction(async function () {
   const shortCircuitIndicator = path.resolve(
-    hre.config.paths.tests,
-    '.short_circuit_indicator'
+    os.tmpdir(),
+    '.hardhat_test_short_circuit_indicator'
   );
 
   try {

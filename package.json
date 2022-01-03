@@ -1,6 +1,6 @@
 {
   "name": "@solidstate/hardhat-test-short-circuit",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "description": "Stop Hardhat test execution on demand and print output from completed tests",
   "keywords": [

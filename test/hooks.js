@@ -1,16 +1,13 @@
-const os = require('os');
 const fs = require('fs');
-const path = require('path');
+
+const resolveIndicatorFile = require('../lib/resolve_indicator_file');
 
 let skip = false;
 
 module.exports = {
   mochaHooks: {
     beforeAll: function () {
-      const shortCircuitIndicator = path.resolve(
-        os.tmpdir(),
-        '.hardhat_test_short_circuit_indicator'
-      );
+      const shortCircuitIndicator = resolveIndicatorFile();
 
       fs.closeSync(fs.openSync(shortCircuitIndicator, 'w'));
 
@@ -22,10 +19,7 @@ module.exports = {
       if (skip) this.skip();
     },
     afterAll: function () {
-      const shortCircuitIndicator = path.resolve(
-        os.tmpdir(),
-        '.hardhat_test_short_circuit_indicator'
-      );
+      const shortCircuitIndicator = resolveIndicatorFile();
 
       try {
         fs.rmSync(shortCircuitIndicator);

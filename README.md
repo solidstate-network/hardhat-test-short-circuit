@@ -21,3 +21,17 @@ Run the included Hardhat task while tests are running to skip all pending tests:
 ```bash
 yarn run hardhat short-circuit
 ```
+
+## Development
+
+Install dependencies via Yarn:
+
+```bash
+yarn install
+```
+
+Setup Husky to format code on commit:
+
+```bash
+yarn prepare
+```

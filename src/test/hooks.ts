@@ -1,6 +1,6 @@
 import resolveIndicatorFile from '../lib/resolve_indicator_file';
 import fs from 'fs';
-import { RootHookObject } from 'mocha';
+import { Context, RootHookObject } from 'mocha';
 
 let skip = false;
 
@@ -15,7 +15,7 @@ const mochaHooks: RootHookObject = {
     });
   },
   beforeEach: function () {
-    if (skip) (this as any).skip();
+    if (skip) (this as Context).skip();
   },
   afterAll: function () {
     const shortCircuitIndicator = resolveIndicatorFile();

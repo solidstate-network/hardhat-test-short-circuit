@@ -1,7 +1,8 @@
-const fs = require('fs');
-const { HardhatPluginError } = require('hardhat/plugins');
-
-const resolveIndicatorFile = require('../lib/resolve_indicator_file');
+import { name as pluginName } from '../../package.json';
+import resolveIndicatorFile from '../lib/resolve_indicator_file';
+import fs from 'fs';
+import { task } from 'hardhat/config';
+import { HardhatPluginError } from 'hardhat/plugins';
 
 task(
   'short-circuit',
@@ -11,6 +12,7 @@ task(
     fs.rmSync(resolveIndicatorFile());
   } catch (e) {
     throw new HardhatPluginError(
+      pluginName,
       'short circuit indicator file not found; are tests in progress?',
     );
   }

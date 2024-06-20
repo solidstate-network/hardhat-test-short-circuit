@@ -25,3 +25,17 @@ npx hardhat short-circuit
 # or
 yarn run hardhat short-circuit
 ```
+
+## Development
+
+Install dependencies via Yarn:
+
+```bash
+yarn install
+```
+
+Setup Husky to format code on commit:
+
+```bash
+yarn prepare
+```

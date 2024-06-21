@@ -24,7 +24,7 @@
     "prettier": "prettier --write ."
   },
   "files": [
-    "dist/src/",
+    "dist/",
     "src/"
   ],
   "peerDependencies": {

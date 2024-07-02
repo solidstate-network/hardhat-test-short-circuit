@@ -19,7 +19,7 @@ describe(TASK_SHORT_CIRCUIT, () => {
       });
     });
 
-    it('skips tests (⚠️ this test should be skipped)', async () => {
+    it('skips tests (✔ this test should be skipped)', async () => {
       throw new Error('Failed to short circuit test execution');
     });
   });

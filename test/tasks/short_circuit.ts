@@ -1,4 +1,4 @@
-import hre from 'hardhat';
+import child_process from 'child_process';
 
 const TASK_SHORT_CIRCUIT = 'short-circuit';
 
@@ -11,7 +11,12 @@ describe(TASK_SHORT_CIRCUIT, () => {
 
   describe('after task execution', () => {
     before(async () => {
-      await hre.run(TASK_SHORT_CIRCUIT);
+      // run short circuit task in separate process to simulate real-world usage
+      await new Promise<void>((resolve) => {
+        child_process.exec(`yarn run hardhat ${TASK_SHORT_CIRCUIT}`, () =>
+          resolve(),
+        );
+      });
     });
 
     it('skips tests (⚠️ this test should be skipped)', async () => {
